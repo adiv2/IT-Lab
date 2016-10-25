@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE addresses [
+        <!ELEMENT addresses (address)*>
+        <!ATTLIST addresses
+                xmlns:xsi CDATA #REQUIRED
+                xsi:noNamespaceSchemaLocation CDATA #REQUIRED>
+        <!ELEMENT address (name|street|wrongExtraField)*>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT street (#PCDATA)>
+        <!ELEMENT wrongExtraField (#PCDATA)>
+        ]>
+<addresses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation='Q2.xsd'>
+
+    <address>
+        <name>Joe Tester</name>
+        <street>Baker street 5</street>
+        <wrongExtraField/>
+    </address>
+
+</addresses>

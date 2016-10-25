@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="coupon" type="couponType"/>
+  <xs:complexType name="bodyType">
+    <xs:sequence>
+      <xs:element type="textType" name="text" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="couponType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="serial-number"/>
+      <xs:element type="valid-atType" name="valid-at"/>
+      <xs:element type="dealType" name="deal" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="bodyType" name="body"/>
+      <xs:element type="termsType" name="terms"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="textType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="type" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="boilerType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="code" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="valid-atType" mixed="true">
+    <xs:sequence>
+      <xs:element name="location" maxOccurs="unbounded" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="FREDS"/>
+            <xs:enumeration value="LITTL"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dealType" mixed="true">
+    <xs:sequence>
+      <xs:element name="location">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="FREDS"/>
+            <xs:enumeration value="LITTL"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="value">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="5.00"/>
+            <xs:enumeration value="7.00"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="requirementType" name="requirement"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="termsType" mixed="true">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:element type="boilerType" name="boiler"/>
+      <xs:element type="xs:string" name="text"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="requirementType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="guests" use="optional"/>
+        <xs:attribute type="xs:string" name="dollars" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>

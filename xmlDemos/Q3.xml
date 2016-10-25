@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE order [
+        <!ELEMENT order (user|products)*>
+        <!ELEMENT user (fullname|deliveryAddress)*>
+        <!ELEMENT fullname (#PCDATA)>
+        <!ELEMENT deliveryAddress (#PCDATA)>
+        <!ELEMENT products (product)*>
+        <!ELEMENT product (#PCDATA)>
+        <!ATTLIST product
+                id CDATA #REQUIRED
+                quantity CDATA #REQUIRED>
+        ]>
+<order>
+    <user>
+        <fullname>Bob Jones</fullname>
+        <deliveryAddress>123 This road,That town,Bobsville</deliveryAddress>
+    </user>
+    <products>
+        <product id="12345" quantity="1" />
+        <product id="3232" quantity="3" />
+    </products>
+</order>

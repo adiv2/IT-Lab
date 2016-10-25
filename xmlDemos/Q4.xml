@@ -1,0 +1,57 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!DOCTYPE coupon [
+        <!ELEMENT coupon (serial-number,valid-at,deal,deal,body,terms)*>
+        <!ELEMENT serial-number (#PCDATA)>
+        <!ELEMENT valid-at (location)*>
+        <!ELEMENT location (#PCDATA)>
+        <!ELEMENT deal (location|value|requirement)*>
+        <!ELEMENT value (#PCDATA)>
+        <!ELEMENT requirement (#PCDATA)>
+        <!ATTLIST requirement
+                dollars CDATA #REQUIRED
+                guests CDATA #REQUIRED>
+        <!ELEMENT body (text)*>
+        <!ELEMENT text (#PCDATA)>
+        <!ATTLIST text
+                type CDATA #IMPLIED>
+        <!ELEMENT terms (boiler,boiler,boiler,text)>
+        <!ELEMENT boiler (#PCDATA)>
+        <!ATTLIST boiler
+                code CDATA #REQUIRED>
+        ]>
+<coupon>
+    <serial-number>1234567890</serial-number>
+    <valid-at>
+        <location>FREDS</location>
+        <location>LITTL</location>   
+    </valid-at>
+    <deal>
+      <location>FREDS</location>
+      <value>5.00</value>
+      <requirement guests="8" dollars="75.00" />
+    </deal>
+    <deal>
+      <location>LITTL</location>
+      <value>7.00</value>
+      <requirement guests="8" dollars="75.00" />
+    </deal>
+    <body>
+        <text type="header">
+       Save $5 at your next party at Fred's, or $7 off your next party at Little Italy!
+        </text>
+        <text type="regular">
+       You will receive $5 off your check at Fred's Restaurant,
+       or $7 off your check at Little Italy, when you bring a
+    party of eight or more to visit and purchase at least
+       $75 worth of food and drink.
+        </text>
+    </body>
+    <terms>
+        <boiler code="LIMIT1" />
+        <boiler code="NOCOMBINE" />
+        <boiler code="GRATUITY8" />
+        <text>
+       Coupon may not be applied toward price of alcoholic beverages.
+        </text>
+    </terms>
+</coupon>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE collection [
+        <!ELEMENT collection (description|recipe)*>
+        <!ELEMENT description (#PCDATA)>
+        <!ELEMENT recipe (title|ingredient|preparation|comment|nutrition)*>
+        <!ELEMENT title (#PCDATA)>
+        <!ELEMENT ingredient (#PCDATA)>
+        <!ATTLIST ingredient
+                name CDATA #REQUIRED
+                amount CDATA #REQUIRED
+                unit CDATA #REQUIRED>
+        <!ELEMENT preparation (step)*>
+        <!ELEMENT step (#PCDATA)>
+        <!ELEMENT comment (#PCDATA)>
+        <!ELEMENT nutrition (#PCDATA)>
+        <!ATTLIST nutrition
+                calories CDATA #REQUIRED
+                fat CDATA #REQUIRED
+                carboh CDATA #REQUIRED>
+        ]>
+<collection>
+    <description> Some recipes used for the XML tutorial. </description>
+    <recipe>
+        <title>Beef Parmesan with Garlic Angel Hair Pasta</title>
+        <ingredient name="beef cube steak" amount = "1.5" unit = "pound"/>
+        <preparation>
+            <step> Preheat oven to 350 degrees F (175 degrees C). </step>
+        </preparation>
+        <comment> Make the meat ahead of time, and refrigerate over night, the acid in the tomato sauce will tenderize the meat even more. If you do this, save the mozzarella till the last minute. </comment>
+        <nutrition calories="1167" fat="23" carboh="10"/>
+    </recipe>
+</collection>
